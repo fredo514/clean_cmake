@@ -11,10 +11,21 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 include(cmake/warnings.cmake)
+include(cmake/postbuild.cmake)
 
 # Hardware selection (provided via Presets or CLI)
 set(TARGET_BOARD "nucleo_f446re" CACHE STRING "Target board")
 set(TARGET_MCU   "stm32f446"     CACHE STRING "Target MCU family")
+
+if(NOT DEFINED TARGET_BOARD)
+    message(FATAL_ERROR
+        "TARGET_BOARD is not defined. Select a configure preset (e.g. --preset nucleo-f446re-debug).")
+endif()
+
+if(NOT DEFINED TARGET_MCU)
+    message(FATAL_ERROR
+        "TARGET_MCU is not defined. Select a configure preset (e.g. --preset nucleo-f446re-debug).")
+endif()
 
 # Project Feature Flags & Options
 option(ENABLE_LOGGING "Enable runtime logging" ON)

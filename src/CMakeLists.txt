@@ -20,9 +20,4 @@ if(ENABLE_TELEMETRY)
     target_compile_definitions(app PRIVATE ENABLE_TELEMETRY=1)
 endif()
 
-add_custom_command(TARGET app POST_BUILD
-    COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:app> $<TARGET_FILE_DIR:app>/app.bin
-    COMMAND ${CMAKE_OBJCOPY} -O ihex   $<TARGET_FILE:app> $<TARGET_FILE_DIR:app>/app.hex
-    COMMAND ${CMAKE_SIZE} $<TARGET_FILE:app>
-    COMMENT "Generated binaries (.bin, .hex) and computed memory footprint"
-)
+firmware_post_build(app)

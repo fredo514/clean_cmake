@@ -1,5 +1,9 @@
 # Modern Embedded CMake Template
 
+TODO: add
+* cppcheck
+* ceedling/gtest/cpputest
+
 A minimal, idiomatic, target-centric Modern CMake template for ARM Cortex-M microcontrollers (**STM32F446** and **STM32G0B1**). 
 
 This setup adheres strictly to the guidelines from *Professional CMake: A Practical Guide*, *Mastering CMake*, and *Effective Modern CMake* by Daniel Pfeifer (mbinna).
