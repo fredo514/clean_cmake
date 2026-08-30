@@ -1,0 +1,10 @@
+add_subdirectory(f4)
+add_subdirectory(g0)
+
+if(TARGET_MCU STREQUAL "stm32f446")
+    add_library(driver::uart ALIAS driver_uart_f4)
+elseif(TARGET_MCU STREQUAL "stm32g0b1")
+    add_library(driver::uart ALIAS driver_uart_g0)
+else()
+    message(FATAL_ERROR "No UART driver implementation available for TARGET_MCU: '${TARGET_MCU}'")
+endif()

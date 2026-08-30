@@ -1,0 +1,87 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "${sourceDir}/cmake/toolchain-arm-none-eabi.cmake"
+    },
+    {
+      "name": "f446-debug",
+      "inherits": "base",
+      "displayName": "STM32F446 Nucleo Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "TARGET_BOARD": "nucleo_f446re",
+        "TARGET_MCU": "stm32f446"
+      }
+    },
+    {
+      "name": "f446-release",
+      "inherits": "base",
+      "displayName": "STM32F446 Nucleo Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "TARGET_BOARD": "nucleo_f446re",
+        "TARGET_MCU": "stm32f446"
+      }
+    },
+    {
+      "name": "g0b1-debug",
+      "inherits": "base",
+      "displayName": "STM32G0B1 Nucleo Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "TARGET_BOARD": "nucleo_g0b1re",
+        "TARGET_MCU": "stm32g0b1"
+      }
+    },
+    {
+      "name": "g0b1-release",
+      "inherits": "base",
+      "displayName": "STM32G0B1 Nucleo Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "TARGET_BOARD": "nucleo_g0b1re",
+        "TARGET_MCU": "stm32g0b1"
+      }
+    },
+    {
+      "name": "f446-telemetry",
+      "inherits": "f446-debug",
+      "displayName": "STM32F446 Nucleo Debug with Telemetry",
+      "cacheVariables": {
+        "ENABLE_TELEMETRY": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "f446-debug",
+      "configurePreset": "f446-debug"
+    },
+    {
+      "name": "f446-release",
+      "configurePreset": "f446-release"
+    },
+    {
+      "name": "g0b1-debug",
+      "configurePreset": "g0b1-debug"
+    },
+    {
+      "name": "g0b1-release",
+      "configurePreset": "g0b1-release"
+    },
+    {
+      "name": "f446-telemetry",
+      "configurePreset": "f446-telemetry"
+    }
+  ]
+}
