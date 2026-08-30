@@ -10,12 +10,17 @@
       "name": "base",
       "hidden": true,
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/${presetName}",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "arm-gcc",
+      "inherits": "base",
+      "hidden": true,
       "toolchainFile": "${sourceDir}/cmake/toolchain-arm-none-eabi.cmake"
     },
     {
       "name": "f446-debug",
-      "inherits": "base",
+      "inherits": "arm-gcc",
       "displayName": "STM32F446 Nucleo Debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -25,7 +30,7 @@
     },
     {
       "name": "f446-release",
-      "inherits": "base",
+      "inherits": "arm-gcc",
       "displayName": "STM32F446 Nucleo Release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -35,7 +40,7 @@
     },
     {
       "name": "g0b1-debug",
-      "inherits": "base",
+      "inherits": "arm-gcc",
       "displayName": "STM32G0B1 Nucleo Debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -45,7 +50,7 @@
     },
     {
       "name": "g0b1-release",
-      "inherits": "base",
+      "inherits": "arm-gcc",
       "displayName": "STM32G0B1 Nucleo Release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",

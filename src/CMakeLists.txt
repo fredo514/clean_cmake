@@ -1,5 +1,9 @@
 add_executable(app main.c)
 
+add_subdirectory(bsp)
+add_subdirectory(drivers)
+add_subdirectory(modules)
+
 target_link_libraries(app
     PRIVATE
         bsp::board
